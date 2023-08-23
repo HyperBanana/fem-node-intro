@@ -1,5 +1,16 @@
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
+import { newNote, getAllNotes, findNotes, removeNote, removeAllNotes } from './notes.js';
+
+const listNotes = (notes) => {
+  notes.forEach(note => {
+    console.log('id: ', note.id)
+    console.log('tags: ', note.tags.join(', ')),
+    console.log('note: ', note.content)
+    console.log('\n')
+  })
+}
+
 
 yargs(hideBin(process.argv))
   .command('new <note>', 'create a new note', yargs => {
